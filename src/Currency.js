@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
-
+import React, {  useEffect, useState } from "react";
+import PlaceCurrency from "./PlaceCurrency";
 function CurrencyConverter() {
-  const [currency, setCurrency] = useState({});
-
-  useEffect(() => {
+  const [currency] = useState({});
+  
+    
+    useEffect(() => {
     fetch('http://localhost:3000/rates')
       .then(resp => resp.json())
       .then(data => {
         if (typeof data === 'object') {
-          setCurrency(data);
+          
+          console.log(data);
         } else {
           throw new Error('Invalid Data');
         }
@@ -27,6 +29,7 @@ function CurrencyConverter() {
           <span>{currency[currencyCode]}</span>
         </div>
       ))}
+        <PlaceCurrency/>
     </div>
   );
 }
