@@ -5,8 +5,7 @@ function ConverterCurrency({currencyOptions}) {
   return (
     <div>
             <Link to="/">Back to Place Currency</Link>
-      <h1>Converter Currency</h1>
-      <h2>Here is Our Displayed rates</h2>
+      <h1>Here is Our Displayed rates</h1>
       <ul>
         {Object.entries(currencyOptions).map(([currency, rate])=> (
           <li key={currency}>

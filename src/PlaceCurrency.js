@@ -64,7 +64,7 @@ const findStrongestAndWeakestRates = () => {
   const { strongest, weakest,  } = findStrongestAndWeakestRates();
   return (
     <div>
-              <Link to="/converter">Go to HomePage</Link>
+              <Link to="/converter">Go to Displayed Rates</Link>
       <h1>Currency Converter</h1>
       <input
         type="number"
@@ -88,9 +88,9 @@ const findStrongestAndWeakestRates = () => {
 
       {/* New section to display the strongest and weakest rates */}
       <div>
-        <h2>Strongest Rate as to Date:</h2>
+        <h2>Strongest Rate as of Date:</h2>
         <p>{strongest.currency} - {strongest.rate}</p>
-        <h2>Weakest Rate as to Date:</h2>
+        <h2>Weakest Rate as of Date:</h2>
         <p>{weakest.currency} - {weakest.rate}</p>
       </div>
     </div>
