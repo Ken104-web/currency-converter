@@ -2,8 +2,7 @@ import { Route, Routes} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 import PlaceCurrency from './PlaceCurrency';
-import ConverterCurrency from './converter';
-
+import ConverterCurrency from "./ConverterCurrency";
 function App() {
   const [currencyOptions, setCurrencyOptions] = useState({});
   const [fromCurrency, setFromCurrency] = useState()
@@ -43,10 +42,7 @@ function handleFromAmountChange(e){
   setAmount(e.target.value)
   setAmountInFromCurrency(true)
 }
-function handleToAmountChange(e) {
-  setAmount(e.target.value)
-  setAmountInFromCurrency(false)
-}
+
 return(
   <Routes>
   <Route path="/" element={<PlaceCurrency
@@ -57,14 +53,8 @@ return(
   amount={fromAmount}
   />}
   />/
-  <Route path="./converter" element={<ConverterCurrency
-  currencyOptions={currencyOptions}
-  selectedCurrency={toCurrency}
-  onChangeCurrency={e => setToCurrency(e.target.value)}
-  onChangeAmount={handleToAmountChange}
-  amount={toAmount}
-  />}
-  />
+      <Route path="/converter" element={<ConverterCurrency currencyOptions={currencyOptions}/>} />
+
   </Routes>
 );
 }

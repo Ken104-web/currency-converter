@@ -1,6 +1,5 @@
 import React from "react";
-import ConverterCurrency from "./converter";
-
+import { Link } from "react-router-dom";
 function PlaceCurrency(props) {
     let {
         currencyOptions,
@@ -18,7 +17,7 @@ function PlaceCurrency(props) {
       
         if (exchangeRate === undefined) {
           console.error("Exchange rate not found for selected currency:", selectedCurrency);
-          return "Error";
+          return "Place choose the rate";
         }
       
         return (amount * exchangeRate).toFixed(2); // Fix the result to 2 decimal places
@@ -65,6 +64,7 @@ const findStrongestAndWeakestRates = () => {
   const { strongest, weakest,  } = findStrongestAndWeakestRates();
   return (
     <div>
+              <Link to="/converter">Go to HomePage</Link>
       <h1>Currency Converter</h1>
       <input
         type="number"
@@ -79,7 +79,6 @@ const findStrongestAndWeakestRates = () => {
           </option>
         ))}
       </select>
-      <ConverterCurrency currencyOptions={currencyOptions} />
 
       {/* New section to display the converted amount */}
       <div>
@@ -89,9 +88,9 @@ const findStrongestAndWeakestRates = () => {
 
       {/* New section to display the strongest and weakest rates */}
       <div>
-        <h2>Strongest Rate:</h2>
+        <h2>Strongest Rate as to Date:</h2>
         <p>{strongest.currency} - {strongest.rate}</p>
-        <h2>Weakest Rate:</h2>
+        <h2>Weakest Rate as to Date:</h2>
         <p>{weakest.currency} - {weakest.rate}</p>
       </div>
     </div>
