@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button, ListGroup, ListGroupItem } from "react-bootstrap";
-
+const searchResultsStyle = {
+    backgroundColor: "#f7f7f7",
+    padding: "10px",
+    borderRadius: "5px",
+}
 function SearchBar({ currencyOptions }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -19,20 +23,21 @@ function SearchBar({ currencyOptions }) {
   
 
   return (
-    <div>
-        <Form.Group>
+    <div style={searchResultsStyle}>
+        <Form.Group className="mb-3">
       <Form.Control
         type="text"
         value={searchTerm}
         onChange={handleInputChange}
         placeholder="Enter currency code to search"
+        className="mr-2"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button  variable="primary" onClick={handleSearch}>Search</button>
     </Form.Group>
       {searchResults.length > 0 && (
   <div>
     <h2>Search Results:</h2>
-    <ListGroup>
+    <ListGroup className="d-flex justify-between">
       {searchResults.map((currencyCode) => (
         <ListGroupItem>
           {currencyCode} - {searchResults[currencyCode]}

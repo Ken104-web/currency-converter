@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Form, Button, Card, FormGroup } from "react-bootstrap";
 function PlaceCurrency(props) {
     let {
         currencyOptions,
@@ -68,34 +69,50 @@ const findStrongestAndWeakestRates = () => {
     <div>
               <Link to="/converter">Go to Displayed Rates</Link>
       <h1>Currency Converter</h1>
-      <input
+     <FormGroup>
+      <Form.Control
         type="number"
-        className="input"
         value={amount}
         onChange={onChangeAmount}
-      />
-      <select value={selectedCurrency} onChange={onChangeCurrency}>
+        className="mb-2"
+
+     />
+      <Form.Select value={selectedCurrency} onChange={onChangeCurrency}>
         {currencyOptionsArray.map(([currency, code]) => (
           <option key={currency} value={currency}>
             {currency}
           </option>
         ))}
-      </select>
+      </Form.Select>
+      </FormGroup>
 
       {/* New section to display the converted amount */}
-      <div>
-        <h2>Converted Amount:</h2>
-        <p>{calculateConvertedAmount()} {selectedCurrency}</p>
-      </div>
+      <Card className="mt-4">
+        <Card.Body>
+          <Card.Title>Converted Amount:</Card.Title>
+        <Card.Text>{calculateConvertedAmount()} {selectedCurrency}</Card.Text>
+      </Card.Body>
+      </Card>
 
       {/* New section to display the strongest and weakest rates */}
-      <div>
-        <h2>Strongest Rate as of Date:</h2>
-        <p>{strongest.currency} - {strongest.rate}</p>
-        <h2>Weakest Rate as of Date:</h2>
-        <p>{weakest.currency} - {weakest.rate}</p>
-      </div>
+      <Card className="mt-4">
+        <Card.Body>
+          <Card.Title>Strongest Rate as of Date:</Card.Title>
+          <Card.Text>
+            {strongest.currency} - {strongest.rate}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <Card className="mt-4">
+        <Card.Body>
+          <Card.Title>Weakest Rate as of Date:</Card.Title>
+          <Card.Text>
+            {weakest.currency} - {weakest.rate}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </div>
+    
   );
 
 
