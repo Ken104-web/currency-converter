@@ -68,7 +68,7 @@ const findStrongestAndWeakestRates = () => {
   return (
     <div>
               <Link to="/converter">Go to Displayed Rates</Link>
-      <h1>Currency Converter</h1>
+      <h1 className="text-center">Currency Converter</h1>
      <FormGroup>
       <Form.Control
         type="number"
