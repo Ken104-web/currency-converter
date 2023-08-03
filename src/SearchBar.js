@@ -28,15 +28,19 @@ function SearchBar({ currencyOptions }) {
       <button onClick={handleSearch}>Search</button>
 
       {searchResults.length > 0 && (
-        <div>
-          <h2>Search Results:</h2>
-          <ul>
-          {Object.keys(currencyOptions).map((key)=>{
-          return <li> {key} - {currencyOptions[key]} </li>
-        })}
-          </ul>
-        </div>
-      )}
+  <div>
+    <h2>Search Results:</h2>
+    <ul>
+      {searchResults.map((currencyCode) => (
+        <li>
+          {currencyCode} - {searchResults[currencyCode]}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+      
     </div>
   );
 }

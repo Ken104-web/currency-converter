@@ -5,7 +5,7 @@ function ConverterCurrency({currencyOptions}) {
   return (
     <div>
       <Link to="/">Back to Place Currency</Link>
-      <SearchBar />
+      <SearchBar currencyOptions={currencyOptions}/>
       <h1>Here is Our Displayed rates</h1>
       <ul>
         {Object.keys(currencyOptions).map((key)=>{
@@ -13,7 +13,6 @@ function ConverterCurrency({currencyOptions}) {
         })}
        
       </ul>
-    <SearchBar currencyOptions={currencyOptions} />
     </div>
   );
 }
