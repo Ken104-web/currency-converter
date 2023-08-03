@@ -11,7 +11,8 @@ function PlaceCurrency(props) {
       } = props;    
 
       console.log(currencyOptions);
-
+      const Me =  {backgroundColor: "#f7f7f7",
+      color: "blue"}
     // assign the currency options object to be an array 
     const currencyOptionsArray = Object.entries(currencyOptions);
       // Function to calculate the converted amount based on the exchange rate
@@ -68,7 +69,7 @@ const findStrongestAndWeakestRates = () => {
   return (
     <div>
               <Link to="/converter">Go to Displayed Rates</Link>
-      <h1 className="text-center">Currency Converter</h1>
+      <h1 className="text-center" style={Me}>Currency Converter</h1>
      <FormGroup>
       <Form.Control
         type="number"
