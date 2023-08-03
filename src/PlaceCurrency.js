@@ -9,6 +9,8 @@ function PlaceCurrency(props) {
         amount
       } = props;    
 
+      console.log(currencyOptions);
+
     // assign the currency options object to be an array 
     const currencyOptionsArray = Object.entries(currencyOptions);
       // Function to calculate the converted amount based on the exchange rate
@@ -17,7 +19,7 @@ function PlaceCurrency(props) {
       
         if (exchangeRate === undefined) {
           console.error("Exchange rate not found for selected currency:", selectedCurrency);
-          return "Place choose the rate";
+          return "Place your rate above";
         }
       
         return (amount * exchangeRate).toFixed(2); // Fix the result to 2 decimal places

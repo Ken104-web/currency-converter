@@ -23,17 +23,16 @@ function App() {
 
 
 useEffect(() => {
-  fetch('http://localhost:3000/rates')
+  fetch('https://cdn.moneyconvert.net/api/latest.json')
   .then(resp => resp.json())
   .then(data => {
-    
-    setCurrencyOptions(data)
+    setCurrencyOptions(data.rates)
     setFromCurrency(data.base);
   })
 }, [])
 useEffect(() => {
   if (fromCurrency != null && toCurrency != null){
-    fetch(`${'http://localhost:3000/rates'}?base=${fromCurrency}$symbols=${toCurrency}`)
+    fetch(`${'https://cdn.moneyconvert.net/api/latest.json'}?base=${fromCurrency}$symbols=${toCurrency}`)
     .then(resp => resp.json())
     .then(data => setExchangeRate(data[toCurrency]))
   }
