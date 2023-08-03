@@ -1,4 +1,4 @@
-mport { Route, Routes} from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 import PlaceCurrency from './PlaceCurrency';
@@ -47,5 +47,25 @@ function handleToAmountChange(e) {
   setAmount(e.target.value)
   setAmountInFromCurrency(false)
 }
-
+return(
+  <Routes>
+  <Route path="/" element={<PlaceCurrency
+  currencyOptions={currencyOptions}
+  selectedCurrency={fromCurrency}
+  onChangeCurrency={e => setFromCurrency(e.target.value)}
+  onChangeAmount={handleFromAmountChange}
+  amount={fromAmount}
+  />}
+  />/
+  <Route path="./converter" element={<ConverterCurrency
+  currencyOptions={currencyOptions}
+  selectedCurrency={toCurrency}
+  onChangeCurrency={e => setToCurrency(e.target.value)}
+  onChangeAmount={handleToAmountChange}
+  amount={toAmount}
+  />}
+  />
+  </Routes>
+);
 }
+export default App;
