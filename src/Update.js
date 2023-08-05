@@ -1,50 +1,70 @@
-import React, { useEffect, useState } from "react";
-
-function UpdateCurrencyRate(){
-    const [currency, setCurrency] = useState('');
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+function UpdateCurrencyRate() {
+    const [currency, setCurrency] = useState("");
     const [rate, setRate] = useState("");
-    const [message, setMessage] =useState('');
-    
-    useEffect(() => {
-        fetch('http://localhost:3000/rates', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(postData)
-        })
-        .then(resp => resp.json())
-        .then((data) =>     setMessage(data.message));
-})
-
+    const [message, setMessage] = useState("");
+  
     function handleCurrencyChange(e) {
-        setCurrency(e.target.value);
-    };
+      setCurrency(e.target.value);
+    }
+  
     function handleRateChange(e) {
-        setRate(e.target.value);
+      setRate(e.target.value);
     }
-        const postData = {
-            currency : currency,
-            rate: parseFloat(rate)
-        };
-    function handleUpdateRate(){
-        setMessage(postData.message);
+  
+    function handleUpdateRate() {
+      const postData = {
+        currency: currency,
+        rate: parseFloat(rate),
+      };
+  
+      fetch("http://localhost:3000/rates", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      })
+        .then((resp) => resp.json())
+        .then((data) => setMessage(data.message))
+        .catch((error) => {
+          console.error("Error:", error);
+          setMessage("Failed to update rate. Please try again later.");
+        });
     }
-       
-    
+  
     return (
-        <div>
-           <h2>Update Rate</h2>
-           <label htmlFor="currency">Currency Code: </label> 
-            <input type="text" id="currency" value={currency} onChange={handleCurrencyChange} />
-        <br />
-        <label htmlFor="rate">New Exchange Rate: </label>
-      <input type="number" id="rate" value={rate} onChange={handleRateChange} />
-      <br />
-      <button onClick={handleUpdateRate}>Update Rate</button>
-      <p>{message}</p>
-        </div>
-    )
-}
-
-export default UpdateCurrencyRate;
+      <div>
+        <h2>Update Rate</h2>
+        <Form>
+          <Form.Group className="mb-3" controlId="currency">
+            <Form.Label>Currency Code:</Form.Label>
+            <Form.Control
+              type="text"
+              value={currency}
+              onChange={handleCurrencyChange}
+            />
+          </Form.Group>
+  
+          <Form.Group className="mb-3" controlId="rate">
+            <Form.Label>New Exchange Rate:</Form.Label>
+            <Form.Control
+              type="number"
+              value={rate}
+              onChange={handleRateChange}
+            />
+          </Form.Group>
+  
+          <Button variant="primary" onClick={handleUpdateRate}>
+            Update Rate
+          </Button>
+        </Form>
+  
+        <p>{message}</p>
+      </div>
+    );
+  }
+  
+  export default UpdateCurrencyRate;
+  

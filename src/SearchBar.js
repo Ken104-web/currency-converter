@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Button, ListGroup, ListGroupItem } from "react-bootstrap";
-import UpdateCurrencyRate from "./Update";
 const searchResultsStyle = {
     backgroundColor: "#f7f7f7",
     padding: "10px",

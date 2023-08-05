@@ -13,7 +13,7 @@ color: "blue"}
       <h1 className="text-center" style={display}>Here is Our Displayed rates</h1>
       <ul>
         {Object.keys(currencyOptions).map((key)=>{
-          return <li> {key} - {currencyOptions[key]} </li>
+          return <li key={key}> {key} - {currencyOptions[key]} </li>
         })}
       </ul>
     </div>

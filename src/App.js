@@ -1,9 +1,9 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 import PlaceCurrency from './PlaceCurrency';
 import ConverterCurrency from "./ConverterCurrency";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [currencyOptions, setCurrencyOptions] = useState({});
