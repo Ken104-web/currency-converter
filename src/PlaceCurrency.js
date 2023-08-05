@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Card, FormGroup } from "react-bootstrap";
+import { Form, Card, FormGroup } from "react-bootstrap";
 function PlaceCurrency(props) {
     let {
         currencyOptions,
@@ -68,7 +68,7 @@ const findStrongestAndWeakestRates = () => {
   const { strongest, weakest,  } = findStrongestAndWeakestRates();
   return (
     <div>
-              <Link to="/converter">Go to Displayed Rates</Link>
+            <Link to="/converter">Go to Displayed Rates</Link>
       <h1 className="text-center" style={Me}>Currency Converter</h1>
      <FormGroup>
       <Form.Control

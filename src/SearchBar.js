@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, ListGroup, ListGroupItem } from "react-bootstrap";
+import UpdateCurrencyRate from "./Update";
 const searchResultsStyle = {
     backgroundColor: "#f7f7f7",
     padding: "10px",
@@ -32,7 +33,7 @@ function SearchBar({ currencyOptions }) {
         placeholder="Enter currency code to search"
         className="mr-2"
       />
-      <button  variable="primary" onClick={handleSearch}>Search</button>
+      <Button  variable="primary" onClick={handleSearch}>Search</Button>
     </Form.Group>
       {searchResults.length > 0 && (
   <div>
