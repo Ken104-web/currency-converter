@@ -47,3 +47,7 @@ To obtain it first run the json server
 # License 
 
 MIT license
+
+# Author
+
+Kenneth Mwangi
