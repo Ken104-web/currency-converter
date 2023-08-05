@@ -33,10 +33,11 @@ function UpdateCurrencyRate() {
           setMessage("Failed to update rate. Please try again later.");
         });
     }
-  
+    const Display =  {backgroundColor: "#f7f7f7",
+    color: "blue"}
     return (
       <div>
-        <h2>Update Rate</h2>
+        <h2 style={Display}>Update Rate</h2>
         <Form>
           <Form.Group className="mb-3" controlId="currency">
             <Form.Label>Currency Code:</Form.Label>
